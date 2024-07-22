@@ -1,0 +1,145 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.container {
+    background: white;
+    padding: 10px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 70%;
+    max-height: 80vh; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; 
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px; 
+    text-align: center;
+    font-size: 18px; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    flex-grow: 1; 
+}
+
+label {
+    font-size: 18px; 
+    color: #555;
+}
+
+input {
+    padding: 8px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 18px; 
+    box-sizing: border-box; 
+}
+
+button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 14px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 10px; 
+    overflow: hidden; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+}
+
+.result-item {
+    margin-bottom: 4px; 
+    padding: 6px; 
+    border-radius: 8px;
+    font-size: 14px; 
+    background: linear-gradient(to right, #f9f9f9, #ffffff); 
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-word; 
+}
+
+.result-item:nth-child(even) {
+    background: linear-gradient(to right, #eeeeee, #ffffff); 
+}
+
+.result-item p {
+    margin: 0;
+    flex: 1 1 100%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.result-item .value {
+    color: #000;
+}
+
+.result-item .no-value {
+    color: transparent;
+}
+
+
+
+/* Media Query cho các thiết bị di động */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 100%;
+        max-height: 100vh;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 8px;
+    }
+
+    .result-item {
+        font-size: 14px;
+        padding: 8px;
+        overflow: visible; 
+    }
+
+    #result {
+        overflow-y: hidden; 
+    }
+}
