@@ -2,7 +2,7 @@ let diemData = [];
 
 // Tải và phân tích dữ liệu CSV khi trang web tải xong
 document.addEventListener('DOMContentLoaded', function() {
-    Papa.parse('diem.csv', {
+    Papa.parse('./diem_thi_thpt_2024.csv', {
         download: true,
         header: true,
         skipEmptyLines: true,
@@ -42,3 +42,47 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
         document.getElementById('result').innerHTML = '<p>Không tìm thấy kết quả.</p>';
     }
 });
+// Initialize diemData as an empty array
+// let diemData = [];
+
+// // Load and parse CSV data when the page is fully loaded
+// document.addEventListener('DOMContentLoaded', () => {
+//     Papa.parse('diem.csv', {
+//         download: true,
+//         header: true,
+//         skipEmptyLines: true,
+//         complete: ({ data }) => {
+//             diemData = data;
+//         }
+//     });
+// });
+
+// // Handle form submission
+// document.getElementById('searchForm').addEventListener('submit', (e) => {
+//     e.preventDefault();
+
+//     const soBaoDanh = document.getElementById('soBaoDanh').value;
+//     const result = diemData.find(row => row.SBD === soBaoDanh);
+
+//     // Define keys for checking
+//     const keys = [
+//         'Toán', 'Văn', 'Ngoại Ngữ', 'Vật Lý', 'Hóa Học', 'Sinh học', 
+//         'TB KHTN', 'Lịch Sử', 'Địa Lý', 'GDCD', 'TB KHXH'
+//     ];
+
+//     // Generate HTML for the result
+//     const resultHTML = keys.map(key => {
+//         const value = result ? result[key] || '' : '';
+//         const valueClass = value.trim() ? 'value' : 'no-value';
+//         return `
+//             <div class="result-item">
+//                 <p>${key}: <span class="${valueClass}">${value}</span></p>
+//             </div>
+//         `;
+//     }).join('');
+
+//     // Display results
+//     document.getElementById('result').innerHTML = result
+//         ? resultHTML
+//         : '<p>Không tìm thấy kết quả.</p>';
+// });
