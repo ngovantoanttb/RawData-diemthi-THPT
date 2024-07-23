@@ -22,7 +22,9 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
     // Các khóa để kiểm tra
     const keys = [
         'Toán', 'Văn', 'Ngoại Ngữ', 'Vật Lý', 'Hóa Học', 'Sinh học', 
-        'TB KHTN', 'Lịch Sử', 'Địa Lý', 'GDCD', 'TB KHXH'
+        // 'TB KHTN', 
+        'Lịch Sử', 'Địa Lý', 'GDCD'
+        // , 'TB KHXH'
     ];
 
     if (result) {
