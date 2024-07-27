@@ -32,7 +32,7 @@ h1 {
     color: #333;
     margin-bottom: 10px; 
     text-align: center;
-    font-size: 18px; 
+    font-size: 32px; 
 }
 
 form {
@@ -61,7 +61,7 @@ button {
     border-radius: 4px;
     background-color: #007BFF;
     color: white;
-    font-size: 14px; 
+    font-size: 18px; 
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -121,11 +121,11 @@ button:hover {
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 32px;
     }
 
     input, button {
-        font-size: 14px;
+        font-size: px;
         padding: 8px;
     }
 
