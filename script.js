@@ -1,13 +1,30 @@
 let diemData = [];
 
+// Hiển thị hiệu ứng tải dữ liệu khi bắt đầu tải
+function showLoading() {
+    document.getElementById('loading').style.display = 'flex';
+}
+
+// Ẩn hiệu ứng tải dữ liệu khi dữ liệu đã được tải
+function hideLoading() {
+    document.getElementById('loading').style.display = 'none';
+}
+
 // Tải và phân tích dữ liệu CSV khi trang web tải xong
 document.addEventListener('DOMContentLoaded', function() {
+    showLoading(); // Hiển thị hiệu ứng tải dữ liệu
+
     Papa.parse('./diem_thi_thpt_2024.csv', {
         download: true,
         header: true,
         skipEmptyLines: true,
         complete: function(results) {
             diemData = results.data;
+            hideLoading(); // Ẩn hiệu ứng tải dữ liệu
+        },
+        error: function(error) {
+            console.error('Error parsing CSV:', error);
+            hideLoading(); // Ẩn hiệu ứng tải dữ liệu nếu có lỗi
         }
     });
 });
@@ -16,20 +33,21 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('searchForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    if (diemData.length === 0) {
+        document.getElementById('result').innerHTML = '<p>Đang tải dữ liệu, vui lòng thử lại sau.</p>';
+        return;
+    }
+
     const soBaoDanh = document.getElementById('soBaoDanh').value;
     const result = diemData.find(row => row.SBD === soBaoDanh);
 
-    // Các khóa để kiểm tra
     const keys = [
         'Toán', 'Văn', 'Ngoại Ngữ', 'Vật Lý', 'Hóa Học', 'Sinh học', 
-        // 'TB KHTN', 
         'Lịch Sử', 'Địa Lý', 'GDCD'
-        // , 'TB KHXH'
     ];
 
     if (result) {
-        // Tạo HTML cho kết quả
-        const resultHTML = keys.map((key, index) => {
+        const resultHTML = keys.map((key) => {
             const value = result[key] || '';
             const valueClass = value && value.trim() !== '' ? 'value' : 'no-value';
             return `
@@ -44,6 +62,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
         document.getElementById('result').innerHTML = '<p>Không tìm thấy kết quả.</p>';
     }
 });
+
 // Initialize diemData as an empty array
 // let diemData = [];
 
